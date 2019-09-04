@@ -1,0 +1,28 @@
+{
+  "name": "pretty-money",
+  "version": "0.1.0",
+  "description": "A tiny money formatting library for JS",
+  "license": "MIT",
+  "keywords": [
+    "money",
+    "currency",
+    "format"
+  ],
+  "homepage": "https://github.com/NickKaramoff/pretty-money#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NickKaramoff/pretty-money.git"
+  },
+  "bugs": {
+    "url": "https://github.com/NickKaramoff/pretty-money/issues"
+  },
+  "author": {
+    "name": "Nikita Karamov",
+    "email": "nick@karamoff.ru",
+    "url": "https://karamoff.ru"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+}

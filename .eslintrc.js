@@ -15,7 +15,6 @@ module.exports = {
         "eqeqeq": [2, "smart"],
         "func-call-spacing": 2,
         "func-names": [2, "as-needed"],
-        "func-style": [2, "declaration"],
         "guard-for-in": 1,
         "key-spacing": 2,
         "keyword-spacing": 2,

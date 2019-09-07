@@ -55,6 +55,16 @@ const defaultOpts: FormatOptions = {
     thousandsDelimiter: ""
 };
 
+type prettify = {
+    (options: FormatOptions, number: number|string): string;
+    (options: FormatOptions): prettify_;
+    (): prettify_;
+}
+
+type prettify_ = {
+    (number: number|string): string;
+}
+
 /**
  * Prettifies a number according to the given format or returns a curried function to prettify any number
  *
@@ -81,7 +91,9 @@ const defaultOpts: FormatOptions = {
  * @param number - the number to be currency-formatted
  * @returns the format results, if the number was provided, or a formatting function otherwise
  */
-function prettify(options: FormatOptions = {}, number?: number|string): string|Function {
+// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+// @ts-ignore
+const prettify: prettify = (options: FormatOptions = {}, number?: number|string) => {
     const _opts: FormatOptions = {
         ...defaultOpts,
         ...options
@@ -95,21 +107,22 @@ function prettify(options: FormatOptions = {}, number?: number|string): string|F
             number = "NaN";
         } else {
             const tens = Math.pow(10, _opts.maxDecimal);
-            number = (number * tens).toFixed(0);
+            number = Math.floor(number * tens).toString();
             const splitIdx = number.length - _opts.maxDecimal;
+            const wholePart = number.slice(0, splitIdx).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1" + _opts.thousandsDelimiter);
             let decimalPart = number.slice(splitIdx);
 
-            if (_opts.decimals === "fluid" || (_opts.decimals === "minmax" && decimalPart.match(/^0*$/))) {
+            if (_opts.decimals === "fluid" || (_opts.decimals === "minmax" && decimalPart.slice(_opts.minDecimal).match(/^0*$/))) {
                 decimalPart = decimalPart.replace(/0*$/, "");
             }
 
-            number = number.slice(0, splitIdx) + decimalPart;
+            number = wholePart + (decimalPart === "" ? "" : _opts.decimalDelimiter) + decimalPart;
         }
 
         return (_opts.position === "before" ? _opts.currency : "")
-            + (_opts.position === "before" && _opts.spaced ? " " : "")
+            + (_opts.position === "before" && _opts.spaced && _opts.currency !== "" ? " " : "")
             + number
-            + (_opts.position === "after" && _opts.spaced ? " " : "")
+            + (_opts.position === "after" && _opts.spaced && _opts.currency !== "" ? " " : "")
             + (_opts.position === "after" ? _opts.currency : "");
     }
 
@@ -118,6 +131,6 @@ function prettify(options: FormatOptions = {}, number?: number|string): string|F
     }
 
     return func(number);
-}
+};
 
 export default prettify;

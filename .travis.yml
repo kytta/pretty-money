@@ -1,0 +1,54 @@
+language: node_js
+node_js:
+  - stable
+cache: npm
+
+install: npm ci
+
+stages:
+  - build
+  - test
+  - deploy
+
+jobs:
+  include:
+    - stage: build
+      name: "Prod build"
+      script:
+        - npm run build
+
+    - stage: test
+      name: "Test"
+      script:
+        - npm run test
+
+    - stage: deploy
+      name: Deploy to GitHub Releases
+      script: npm run build
+      before_deploy:
+        - echo "Deploying to GitHub Releases"
+      deploy:
+        provider: releases
+        api_key:
+          secure: PmUkI/oJ8HDDGlxMbTzmDC6BVHuv0ITBmSQkcO61ksjNgUpbaCx3b0K8S8v/CF1R0Lq34AavREdwrWvVIbWHLVqNlCU+7pFhc2Qv3pfErLFGW4z1aLQsmEWSm1nhHOdYa7G0Tna0F90lU8YZlilNH52yK0PXeAQyx3d0yWMIHq2HPasPh7NwEacGYbkyD8hdQfjl4UsKXZXIczyy0m0Li7+1mixadUeSGmz39p6idBwoLP3hgCX5V7kJD6b37zcuKINRVLMKMalUtKHSysyJ8WgGphTMSHvnSFXYJxDb6RDFTHiDzjHApMy2j9ykQbkdaeqmtjO2KQ950m84dAPcKvJzZpYSKl6NWKaR/YPKkCdjiiY9hO+079dNSu6fMKUCrtvHTJQz9oaMvuVYjQXTlJuQenfwtHS4dKceZOUyLC4Jywus4NooCagyxp4A6R0QI3OAbXAGAC0UEn0VtXkxgzszstdsYoJsNibxMBXV//RKszTyjBLNE8g0dnTibqIJMtviTcBf5PfppYvhUh+ax4v5Io2ADRjBrDZi0XDk9XaBliK2VPl3eoQ1Qp+Y0W3bsR8WRygle4h+fxHPOpJH2jOylnGCua4eTTBpDi6VslFwlgdNtanNSUn/qIPeAQCSvvj1ZjhbFgo6C95LB9pDXCTfE40Jc95WtXsVqIrv/rM=
+        file:
+          - ./dist/pretty-money.umd.js
+          - ./dist/pretty-money.esm.js
+        skip_cleanup: true
+        draft: true
+        on:
+          tags: true
+    - stage: deploy
+      name: Deploy to NPM
+      script: npm run build
+      before_deploy:
+        - echo "Deploying to NPM"
+      deploy:
+        provider: npm
+        email: nick@karamoff.ru
+        api_key:
+          secure: T+fFRTOTZL1UtQ5ZlsayLfYodHCYmidLr2MPlo5QH8QfK7oURNiYMradgy7Xi2uQ7bWXzzuZtON3XkB1TLzxZmOFUfFJHuTYYdLCBj/94T12S5qmLGL/uHg5yrdy9o388wmYtZBCCH1pTmN8bJ6vxeolRg3TjAKbAy4omo8S0KnjSyGTKNrPW8K89iIx1ZQwlf2oVLaavbAV+twNft2UnldlNrxco3FBXpndujTT/uBP0gFLI6miXixY0nUZN8GI8VPzcvNDyY4qVCangfL0DMOfsQyieumRsC+630snPRzSUmyG0G3NO34gBg/oEkAqRnxHdmTuZDjMo02gMMABE6z4RY+ETwBYSda/6DbDYpkkyBvhavP2cRwwqZFsjM/qJl3dOhLiBmPRPPmuIEl5GNhVgSBGBv6nxV8vXOkkiHO5dJOrW6zlahOwT0eOO176ASTMB8dctLFg/mlUulZvKaQ0OZw67++MuqXFS1/DJM499mXrLE5qw+2dwq+sekuxbHA93+BBX7mztKm2SlzzvroKeE+KrVsvTlnfhK0oxotIvG4C7SbhkTis5PPhK4GemytAgtL1PWuHzk9To7ir4KyX2A3ZKqEC8ERfFt7f8rbJEEYaMJoLk/3lQUFjn7pZUnazh68gov7rRlmchZJm6oFZwGCmWXvysY2SfJl8IvA=
+        skip_cleanup: true
+        draft: true
+        on:
+          tags: true

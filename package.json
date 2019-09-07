@@ -21,6 +21,12 @@
     "email": "nick@karamoff.ru",
     "url": "https://karamoff.ru"
   },
+  "files": [
+    "dist/pretty-money.esm.js",
+    "dist/pretty-money.umd.js",
+    "src",
+    "typings.d.ts"
+  ],
   "main": "dist/pretty-money.umd.js",
   "module": "dist/pretty-money.esm.js",
   "scripts": {

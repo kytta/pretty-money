@@ -56,7 +56,7 @@ yarn add pretty-money
 If you want to use pretty-money in browser, you can install the latest version with jsDelivr:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/pretty-money@0.1/dist/pretty-money.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pretty-money@1.0/dist/pretty-money.umd.js"></script>
 ```
 
 ## Usage

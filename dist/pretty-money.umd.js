@@ -1,0 +1,1 @@
+!function(e,t){"object"==typeof exports&&"undefined"!=typeof module?t(exports):"function"==typeof define&&define.amd?define(["exports"],t):t((e=e||self).PrettyMoney={})}(this,function(e){"use strict";e.answer=42,Object.defineProperty(e,"__esModule",{value:!0})});

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>pretty-money | A tiny currency formatting library for JavaScript</title>
+    <meta name="description" content="A tiny currency formatting library for JavaScript">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://igoradamenko.github.io/awsm.css/css/awsm.min.css">
+    <script src="../dist/pretty-money.umd.js"></script>
+</head>
+<body>
+    <header>
+        <p>
+            <img src="https://github.com/googlefonts/noto-emoji/raw/master/png/128/emoji_u1f4b8.png" width="64" height="64" alt="Money With Wings emoji">
+        </p>
+        <h1>pretty-money</h1>
+        <p>A tiny currency formatting library for JavaScript</p>
+        <nav>
+            <ul>
+                <li>
+                    <a href="https://www.npmjs.com/package/pretty-money" target="_blank">npm</a>
+                </li>
+                <li>
+                    <a href="https://github.com/NickKaramoff/pretty-money" target="_blank">github</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+            <h2>
+                <a id="what-is-it" href="#what-is-it" aria-hidden="true"></a>
+                What is it?
+            </h2>
+
+            <p>
+                <code>pretty-money</code> is a currency formatting library for JavaScript.
+            </p>
+
+            <p>
+                It can help you format financial values in any way you desire. While being highly customizable, <code>pretty-money</code>
+                is easy to use and extremely lightweight (469 bytes minzipped).
+            </p>
+            <aside>
+                <p>
+                    the size of <code>pretty-money</code> is controlled with
+                    <a href="https://github.com/ai/size-limit" target="_blank">Size Limit</a>
+                </p>
+            </aside>
+
+            <p>
+                <code>pretty-money</code> is dependency-less and totally not opinionated towards browser or Node versions.
+                Unlike <code>Number.prototype.toLocaleString</code>, <code>pretty-money</code> produces the same code in
+                any environment.
+            </p>
+        </article>
+
+        <article>
+            <h2>
+                <a href="#demo" id="demo" aria-hidden="true"></a>
+                Demo
+            </h2>
+
+            <form id="demoForm">
+                <label for="input">Amount</label>
+                <input id="input" type="number" value="1000" oninput="applyChanges()">
+                <output>
+                    <strong>Formatted:</strong>
+                    <span id="output">$ 1,000</span>
+                </output>
+            </form>
+
+            <form id="configForm">
+                <h4>Config</h4>
+                <fieldset>
+                    <legend>Currency symbol</legend>
+                    <label for="currency">Symbol</label>
+                    <input id="currency" name="currency" type="text" value="$" oninput="applyChanges()">
+
+                    <p>Position<br>
+                        <label>
+                            <input type="radio" name="position" value="before" onchange="applyChanges()" checked>before
+                        </label>
+                        <label>
+                            <input type="radio" name="position" value="after" onchange="applyChanges()">after
+                        </label>
+                    </p>
+
+                    <p>Spaced<br>
+                        <label>
+                            <input type="radio" name="spaced" value="true" onchange="applyChanges()" checked>true
+                        </label>
+                        <label>
+                            <input type="radio" name="spaced" value="false" onchange="applyChanges()">false
+                        </label>
+                    </p>
+                </fieldset>
+                <fieldset>
+                    <legend>Decimal places</legend>
+                    <p>Mode<br>
+                        <label>
+                            <input type="radio" name="decimals" value="fixed" onchange="applyChanges()">fixed
+                        </label>
+                        <label>
+                            <input type="radio" name="decimals" value="fluid" onchange="applyChanges()">fluid
+                        </label>
+                        <label>
+                            <input type="radio" name="decimals" value="minmax" onchange="applyChanges()" checked>minmax
+                        </label>
+                    </p>
+
+                    <label for="minDecimal">Min amount of decimal spaces</label>
+                    <input id="minDecimal" name="minDecimal" type="number" value="0" oninput="applyChanges()">
+
+                    <label for="maxDecimal">Max amount of decimal spaces</label>
+                    <input id="maxDecimal" name="maxDecimal" type="number" value="2" oninput="applyChanges()">
+                </fieldset>
+
+                <fieldset>
+                    <legend>Delimiters</legend>
+                    <label for="decimalDelimiter">Decimal part separator</label>
+                    <input id="decimalDelimiter" name="decimalDelimiter" type="text" value="." oninput="applyChanges()">
+
+                    <label for="thousandsDelimiter">Thousands separator</label>
+                    <input id="thousandsDelimiter" name="thousandsDelimiter" type="text" value="," oninput="applyChanges()">
+                </fieldset>
+            </form>
+
+
+            <script>
+                const input = document.getElementById("input");
+                const output = document.getElementById("output");
+
+                function applyChanges() {
+                    const number = input.value;
+
+                    const config = {
+                        currency: document.forms.configForm.elements.currency.value,
+                        position: document.forms.configForm.elements.position.value,
+                        spaced: document.forms.configForm.elements.spaced.value === "true",
+                        decimals: document.forms.configForm.elements.decimals.value,
+                        minDecimal: parseInt(document.forms.configForm.elements.minDecimal.value),
+                        maxDecimal: parseInt(document.forms.configForm.elements.maxDecimal.value),
+                        decimalDelimiter: document.forms.configForm.elements.decimalDelimiter.value,
+                        thousandsDelimiter: document.forms.configForm.elements.thousandsDelimiter.value,
+                    };
+
+                    output.innerText = prettyMoney(config)(number);
+                    return false;
+                }
+            </script>
+
+        </article>
+
+        <article>
+            <h2>
+                <a href="#install" id="install" aria-hidden="true"></a>
+                Install
+            </h2>
+
+            <p><code>pretty-money</code> can be installed as an npm module:</p>
+            <pre><code>npm install pretty-money
+# or
+yarn add pretty-money</code></pre>
+
+            <p>...or served from CDN like jsDelivr:</p>
+            <pre><code>&lt;script
+  src="https://cdn.jsdelivr.net/npm/pretty-money@1.0/dist/pretty-money.umd.js"
+&gt;
+&lt;/script&gt;</code></pre>
+        </article>
+
+        <article>
+            <h2>
+                <a href="#usage" id="usage" aria-hidden="true"></a>
+                Usage
+            </h2>
+
+            <p>
+                There are two ways you can use <code>pretty-money</code>: traditional and functional.
+
+                Traditional way is to extract a config object for reuse and to call the function with two parameters — config and number —
+                every time:
+            </p>
+
+            <pre><code>const prettyDollarConfig = {
+    currency: "$",
+    position: "before",
+    spaced: false,
+    thousandsDelimiter: ","
+}
+
+const priceA = prettyMoney(prettyDollarConfig, 1234); //=> "$1,234"
+const priceB = prettyMoney(prettyDollarConfig, 567.89); //=> "$567.89"</code></pre>
+
+            <p>
+                Functional way is to curry the function, i.e. to create a function with set config and to call it with one parameter — number:
+            </p>
+
+            <pre><code>const prettyEuro = prettyMoney({
+    currency: "€",
+    decimals: "fixed",
+    decimalDelimiter: ",",
+    thousandsDelimiter: "."
+})
+
+const priceA = prettyEuro(1234); //=> "1.234,00 €"
+const priceB = prettyEuro(567.89); //=> "567,89 €"</code></pre>
+
+            <p>
+                You can read more about how to configure pretty-money in the <a href="https://github.com/NickKaramoff/pretty-money#readme">README</a>.
+            </p>
+        </article>
+    </main>
+
+    <footer>
+        <p>by <a href="https://karamoff.ru" target="_blank">Nikita Karamov</a></p>
+        <p>Website built with <a href="https://igoradamenko.github.io/awsm.css/index.html" target="_blank">awsm.css</a></p>
+    </footer>
+</body>
+</html>

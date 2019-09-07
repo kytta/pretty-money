@@ -75,3 +75,5 @@ out/
 
 # JIRA plugin
 atlassian-ide-plugin.xml
+
+dist/**/*.dev.js

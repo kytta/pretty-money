@@ -1,7 +1,7 @@
 {
   "name": "pretty-money",
   "version": "0.1.0",
-  "description": "A tiny currency formatting library for JS",
+  "description": "A tiny currency formatting library for JavaScript",
   "license": "MIT",
   "keywords": [
     "money",

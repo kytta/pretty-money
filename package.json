@@ -24,11 +24,12 @@
   "files": [
     "dist/pretty-money.esm.js",
     "dist/pretty-money.umd.js",
-    "src",
-    "typings.d.ts"
+    "dist/pretty-money.d.ts",
+    "src"
   ],
   "main": "dist/pretty-money.umd.js",
   "module": "dist/pretty-money.esm.js",
+  "types": "dist/pretty-money.d.ts",
   "scripts": {
     "build": "rollup --config ./config/build/rollup.config.prod.js",
     "dev": "rollup -w --config ./config/build/rollup.config.dev.js",

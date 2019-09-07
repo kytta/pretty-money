@@ -1,14 +1,13 @@
 {
     "compilerOptions": {
-        "target": "es3",
-        "lib": ["es6"],
+        "declaration": true,
+        "declarationDir": "./dist",
+        "module": "es6",
         "noImplicitReturns": true,
         "noImplicitAny": true,
-        "module": "es2015"
+        "outDir": "./dist",
+        "target": "es3"
     },
-    "files": [
-        "./src/index.ts"
-    ],
     "include": [
         "./src/**/*"
     ],

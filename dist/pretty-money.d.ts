@@ -36,6 +36,18 @@ interface FormatOptions {
      */
     thousandsDelimiter?: string;
 }
+
+type prettify = {
+    (options: FormatOptions, number: number|string): string;
+    (options: FormatOptions): prettify_;
+    (): prettify_;
+}
+
+type prettify_ = {
+    (number: number|string): string;
+}
+
+
 /**
  * Prettifies a number according to the given format or returns a curried function to prettify any number
  *
@@ -62,5 +74,6 @@ interface FormatOptions {
  * @param number - the number to be currency-formatted
  * @returns the format results, if the number was provided, or a formatting function otherwise
  */
-declare function prettify(options: FormatOptions, number?: number | string): string | Function;
-export default prettify;
+declare const prettify: prettify;
+
+export = prettify;

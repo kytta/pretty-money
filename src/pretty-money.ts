@@ -81,7 +81,7 @@ const defaultOpts: FormatOptions = {
  * @param number - the number to be currency-formatted
  * @returns the format results, if the number was provided, or a formatting function otherwise
  */
-function prettify(options: FormatOptions, number?: number|string): string|Function {
+function prettify(options: FormatOptions = {}, number?: number|string): string|Function {
     const _opts: FormatOptions = {
         ...defaultOpts,
         ...options

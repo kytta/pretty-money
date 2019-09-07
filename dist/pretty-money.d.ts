@@ -1,38 +1,47 @@
 interface FormatOptions {
     /**
-     * The currency name or symbol to be used in formatted string
+     * The string to be used as currency symbol.
+     *
+     * It can be the respective sign (like "$"), currency code (like "GBP") or a word (like "peso").
      */
     currency?: string;
+
     /**
-     * Indicates the place where the currency name/symbol should be located with respect to the number
-     */
-    position?: "before" | "after";
-    /**
-     * Indicates whether there should be a space between the number and the currency name/symbol
-     */
-    spaced?: boolean;
-    /**
-     * Indicates the amount of decimal places
-     *
-     * - "fluid" — the amount of places will stay between `minDecimal` and `maxDecimal` and will have to trailing zeros.
-     * - "minmax" — the amount of places will stay at `maxDecimal` unless it's possible to be at `minDecimal`.
-     * - "fixed" — the amount of places will always stay at `maxDecimal`. `minDecimal` has no effect.
-     */
-    decimals?: "fluid" | "minmax" | "fixed";
-    /**
-     * The minimum number of decimal places for the number
-     */
-    minDecimal?: number;
-    /**
-     * The maximum number of decimal places for the number
-     */
-    maxDecimal?: number;
-    /**
-     * The separator between the integer and the fraction parts of the number
+     * A string that separates the integer and the fraction parts of the number.
      */
     decimalDelimiter?: string;
+
     /**
-     * The separator between the thousands of the number
+     * Sets the amount of decimal places.
+     *
+     * - "fixed" — the amount of places will always stay at `maxDecimal`. `minDecimal` has no effect.
+     * - "fluid" — the amount of places will stay at any number between `minDecimal` and `maxDecimal`, in order not to have trailing zeros.
+     * - "minmax" — the amount of places will stay at `maxDecimal` unless it's possible to be at `minDecimal` without having trailing zeros.
+     */
+    decimals?: "fluid"|"minmax"|"fixed";
+
+    /**
+     * The maximum number of decimal places allowed in the number.
+     */
+    maxDecimal?: number;
+
+    /**
+     * The minimum number of decimal places allowed in the number. Has no effect when `decimals` is `"fixed"`.
+     */
+    minDecimal?: number;
+
+    /**
+     * Sets the position of the currency symbol with respect to the number.
+     */
+    position?: "before"|"after";
+
+    /**
+     * Sets whether there should be a space between the number and the currency symbol.
+     */
+    spaced?: boolean;
+
+    /**
+     * A string that separates the thousands of the number.
      */
     thousandsDelimiter?: string;
 }

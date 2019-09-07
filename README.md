@@ -7,8 +7,8 @@ A tiny currency formatting library for JavaScript.
 - **Robust.** The config can be tweaked to present any modern currency.
 
 ```js
-import prettify from "pretty-money";
-let price = prettify({ currency: "EUR" }, 10000); //=> "10000 EUR"
+import prettyMoney from "pretty-money";
+let price = prettyMoney({ currency: "EUR" }, 10000); //=> "10000 EUR"
 ```
 
 Works everywhere where there is support for ES3.
@@ -35,7 +35,7 @@ While pretty-money doesn't have any locales built-in, it provides a better API, 
 currency formatting function they need.
 
 ```js
-let price = prettify({
+let price = prettyMoney({
     currency: "₽",
     thousandsDelimiter: " "
 })(10000);
@@ -59,8 +59,6 @@ If you want to use pretty-money in browser, you can install the latest version w
 <script src="https://cdn.jsdelivr.net/npm/pretty-money@0.1/dist/pretty-money.umd.js"></script>
 ```
 
-The formatting function will be available in browser scope under the name `PrettyMoney` instead of usual imported `prettify`.
-
 ## Usage
 
 There are two ways you can use a formatting function: traditional and functional. 
@@ -69,21 +67,21 @@ Traditional way is to extract a config object for reuse and to call the function
 every time:
 
 ```js
-const configUsd = {
+const prettyDollarConfig = {
     currency: "$",
     position: "before",
     spaced: false,
     thousandsDelimiter: ","
 }
 
-const priceA = prettify(configUsd, 1234); //=> "$1,234"
-const priceB = prettify(configUsd, 567.89); //=> "$567.89"
+const priceA = prettyMoney(prettyDollarConfig, 1234); //=> "$1,234"
+const priceB = prettyMoney(prettyDollarConfig, 567.89); //=> "$567.89"
 ```
 
 Functional way is to curry the function, i.e. to create a function with set config and to call it with one parameter — number:
 
 ```js
-const prettyEuro = prettify({
+const prettyEuro = prettyMoney({
     currency: "€",
     decimals: "fixed",
     decimalDelimiter: ",",

@@ -1,6 +1,6 @@
-import prettify from "../src/pretty-money";
+import prettyMoney from "../src/pretty-money";
 
 test("curried should match simple", () => {
-    expect(prettify({})(1234))
-        .toBe(prettify({}, 1234));
+    expect(prettyMoney({})(1234))
+        .toBe(prettyMoney({}, 1234));
 });

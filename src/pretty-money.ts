@@ -57,13 +57,13 @@ const defaultOpts: FormatOptions = {
     thousandsDelimiter: ""
 };
 
-type prettify = {
+type prettifyFactory = {
     (options: FormatOptions, number: number|string): string;
-    (options: FormatOptions): prettify_;
-    (): prettify_;
+    (options: FormatOptions): prettify;
+    (): prettify;
 }
 
-type prettify_ = {
+type prettify = {
     (number: number|string): string;
 }
 
@@ -95,13 +95,13 @@ type prettify_ = {
  */
 // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
 // @ts-ignore
-const prettify: prettify = (options: FormatOptions = {}, number?: number|string) => {
+const prettyMoney: prettifyFactory = (options: FormatOptions = {}, number?: number|string) => {
     const _opts: FormatOptions = {
         ...defaultOpts,
         ...options
     };
 
-    function func(number: number|string): string {
+    function prettify(number: number|string): string {
         number = Number(number);
 
         if (isNaN(number)) {
@@ -129,10 +129,10 @@ const prettify: prettify = (options: FormatOptions = {}, number?: number|string)
     }
 
     if (number === undefined) {
-        return func;
+        return prettify;
     }
 
-    return func(number);
+    return prettify(number);
 };
 
-export default prettify;
+export default prettyMoney;

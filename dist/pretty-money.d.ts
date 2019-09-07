@@ -46,13 +46,13 @@ interface FormatOptions {
     thousandsDelimiter?: string;
 }
 
-type prettify = {
+type prettifyFactory = {
     (options: FormatOptions, number: number|string): string;
-    (options: FormatOptions): prettify_;
-    (): prettify_;
+    (options: FormatOptions): prettify;
+    (): prettify;
 }
 
-type prettify_ = {
+type prettify = {
     (number: number|string): string;
 }
 
@@ -83,6 +83,6 @@ type prettify_ = {
  * @param number - the number to be currency-formatted
  * @returns the format results, if the number was provided, or a formatting function otherwise
  */
-declare const prettify: prettify;
+declare const prettyMoney: prettify;
 
-export = prettify;
+export default prettyMoney;

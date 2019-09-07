@@ -20,7 +20,7 @@ jobs:
     - stage: test
       name: "Test"
       script:
-        - npm run test
+        - npm run test && npm i -g codecov && codecov
 
     - stage: deploy
       name: Deploy to GitHub Releases

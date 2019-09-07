@@ -52,7 +52,7 @@
   "size-limit": [
     {
       "path": "./dist/pretty-money.umd.js",
-      "limit": "5 KB"
+      "limit": "1 KB"
     }
   ]
 }

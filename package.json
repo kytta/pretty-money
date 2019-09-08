@@ -8,7 +8,7 @@
     "currency",
     "format"
   ],
-  "homepage": "https://github.com/NickKaramoff/pretty-money#readme",
+  "homepage": "https://os.karamoff.ru/pretty-money",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/NickKaramoff/pretty-money.git"

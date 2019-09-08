@@ -11,6 +11,8 @@ import prettyMoney from "pretty-money";
 let price = prettyMoney({ currency: "EUR" }, 10000); //=> "10000 EUR"
 ```
 
+### [Demo](https://os.karamoff.ru/pretty-money#demo)
+
 Works everywhere where there is support for ES3.
 
 ----

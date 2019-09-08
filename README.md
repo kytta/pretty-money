@@ -2,7 +2,7 @@
 
 A tiny currency formatting library for JavaScript.
 
-- **Small.** Dependency-free. 469 bytes minified and gzipped. Controlled by [Size Limit](https://github.com/ai/size-limit).
+- **Small.** Dependency-free. 478 bytes minified and gzipped. Controlled by [Size Limit](https://github.com/ai/size-limit).
 - **Functional.** The function can be used traditionally or curried for later reuse.
 - **Flexible.** The config can be tweaked to present any modern currency.
 

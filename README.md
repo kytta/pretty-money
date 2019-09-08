@@ -2,7 +2,7 @@
 
 A tiny currency formatting library for JavaScript.
 
-- **Small.** Dependency-free. 469 bytes minified and gzipped. Controlled by [Size Limit](https://github.com/ai/size-limit).
+- **Small.** Dependency-free. 559 bytes minified and gzipped. Controlled by [Size Limit](https://github.com/ai/size-limit).
 - **Functional.** The function can be used traditionally or curried for later reuse.
 - **Flexible.** The config can be tweaked to present any modern currency.
 
@@ -10,6 +10,8 @@ A tiny currency formatting library for JavaScript.
 import prettyMoney from "pretty-money";
 let price = prettyMoney({ currency: "EUR" }, 10000); //=> "10000 EUR"
 ```
+
+### [Demo](https://os.karamoff.ru/pretty-money#demo)
 
 Works everywhere where there is support for ES3.
 

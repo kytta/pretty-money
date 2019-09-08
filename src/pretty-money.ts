@@ -115,7 +115,7 @@ const prettyMoney: prettifyFactory = (options: FormatOptions = {}, number?: numb
             let decimalPart = number.slice(splitIdx);
 
             if (_opts.decimals === "fluid" || (_opts.decimals === "minmax" && decimalPart.slice(_opts.minDecimal).match(/^0*$/))) {
-                decimalPart = decimalPart.replace(/0*$/, "");
+                decimalPart = decimalPart.slice(0, _opts.minDecimal) + decimalPart.slice(_opts.minDecimal).replace(/0*$/, "");
             }
 
             number = wholePart + (decimalPart === "" ? "" : _opts.decimalDelimiter) + decimalPart;

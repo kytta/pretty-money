@@ -1,6 +1,6 @@
 {
   "name": "pretty-money",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A tiny currency formatting library for JavaScript",
   "license": "MIT",
   "keywords": [
@@ -8,7 +8,7 @@
     "currency",
     "format"
   ],
-  "homepage": "https://github.com/NickKaramoff/pretty-money#readme",
+  "homepage": "https://os.karamoff.ru/pretty-money",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/NickKaramoff/pretty-money.git"
@@ -49,7 +49,6 @@
     "npm-run-all": "^4.1.5",
     "rollup": "^1.20.3",
     "rollup-plugin-banner": "^0.2.1",
-    "rollup-plugin-cleanup": "^3.1.1",
     "rollup-plugin-strip": "^1.2.2",
     "rollup-plugin-terser": "^5.1.1",
     "rollup-plugin-typescript2": "^0.24.0",

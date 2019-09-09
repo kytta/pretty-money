@@ -1,4 +1,6 @@
 # pretty-money
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FNickKaramoff%2Fpretty-money.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FNickKaramoff%2Fpretty-money?ref=badge_shield)
+
 
 A tiny currency formatting library for JavaScript.
 
@@ -152,3 +154,7 @@ Sets whether there should be a space between the number and the currency symbol.
 **Default:** `""`
 
 A string that separates the thousands of the number.
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FNickKaramoff%2Fpretty-money.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FNickKaramoff%2Fpretty-money?ref=badge_large)

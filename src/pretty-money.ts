@@ -68,13 +68,10 @@ type prettify = {
 }
 
 /**
- * Prettifies a number according to the given format or returns a curried function to prettify any number
+ * Returns a curried function to prettify a number according to the given format
  *
  * ## Usage
  * ```
- * > prettify({currency: "USD"}, 5);
- * 5 USD
- *
  * > const euros = prettify({currency: "EUR"});
  * > euros("12.345")
  * 12.34 EUR
@@ -90,18 +87,41 @@ type prettify = {
  * ```
  *
  * @param options - formatting options
- * @param number - the number to be currency-formatted
- * @returns the format results, if the number was provided, or a formatting function otherwise
+ * @returns the formatting function
  */
-// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-// @ts-ignore
-const prettyMoney: prettifyFactory = (options: FormatOptions = {}, number?: number|string) => {
+function prettyMoney(options: FormatOptions): (n: number|string) => string;
+
+/**
+ * Prettifies a number according to the given format
+ *
+ * ## Usage
+ * ```
+ * > prettify({currency: "USD"}, 5);
+ * 5 USD
+ *
+ * > prettify({
+ *     currency: "₽",
+ *     decimals: "fixed",
+ *     decimalDelimiter: ",",
+ *     thousandsDelimiter: " "
+ * }, "56789.0");
+ * 56 789,00 ₽
+ * ```
+ *
+ * @param options - formatting options
+ * @param number - the number to be currency-formatted
+ * @returns the format results
+ */
+function prettyMoney(options: FormatOptions, number: number|string): string;
+
+
+function prettyMoney(options: FormatOptions, number?: number | string): string | ((n: number|string) => string) {
     const _opts: FormatOptions = {
         ...defaultOpts,
         ...options
     };
 
-    function prettify(number: number|string): string {
+    function prettify(number: number | string): string {
         number = Number(number);
 
         if (isNaN(number)) {
@@ -133,6 +153,6 @@ const prettyMoney: prettifyFactory = (options: FormatOptions = {}, number?: numb
     }
 
     return prettify(number);
-};
+}
 
 export default prettyMoney;

@@ -1,14 +1,17 @@
 {
-    "compilerOptions": {
-        "esModuleInterop": true,
-        "module": "es6",
-        "noImplicitReturns": true,
-        "noImplicitAny": true,
-        "outDir": "./dist",
-        "target": "es3"
-    },
-    "include": [
-        "./src/**/*"
-    ],
-    "exclude": ["node_modules"]
+  "compilerOptions": {
+    "declaration": true,
+    "esModuleInterop": true,
+    "module": "es6",
+    "noImplicitReturns": true,
+    "noImplicitAny": true,
+    "outDir": "./dist",
+    "target": "es3"
+  },
+  "include": [
+    "./src/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

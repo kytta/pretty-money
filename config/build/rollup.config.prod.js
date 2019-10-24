@@ -1,5 +1,5 @@
 import { defaultOutput, getFilename, input } from './defaults';
-import { banner, strip, terser, typescript } from './plugins';
+import { strip, terser, typescript } from './plugins';
 
 export default {
     input,
@@ -18,7 +18,6 @@ export default {
     plugins: [
         typescript(),
         terser(),
-        strip(),
-        banner()
+        strip()
     ]
 }

@@ -1,5 +1,5 @@
 import { defaultOutput, getFilename, input } from './defaults';
-import { terser, typescript } from './plugins';
+import { typescript } from './plugins';
 
 export default {
     input,

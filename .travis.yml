@@ -3,7 +3,7 @@ node_js:
   - stable
 cache: npm
 
-install: npm ci
+install: npm install
 
 stages:
   - build
@@ -47,8 +47,6 @@ jobs:
         provider: npm
         email: nick@karamoff.ru
         api_key:
-          secure: T+fFRTOTZL1UtQ5ZlsayLfYodHCYmidLr2MPlo5QH8QfK7oURNiYMradgy7Xi2uQ7bWXzzuZtON3XkB1TLzxZmOFUfFJHuTYYdLCBj/94T12S5qmLGL/uHg5yrdy9o388wmYtZBCCH1pTmN8bJ6vxeolRg3TjAKbAy4omo8S0KnjSyGTKNrPW8K89iIx1ZQwlf2oVLaavbAV+twNft2UnldlNrxco3FBXpndujTT/uBP0gFLI6miXixY0nUZN8GI8VPzcvNDyY4qVCangfL0DMOfsQyieumRsC+630snPRzSUmyG0G3NO34gBg/oEkAqRnxHdmTuZDjMo02gMMABE6z4RY+ETwBYSda/6DbDYpkkyBvhavP2cRwwqZFsjM/qJl3dOhLiBmPRPPmuIEl5GNhVgSBGBv6nxV8vXOkkiHO5dJOrW6zlahOwT0eOO176ASTMB8dctLFg/mlUulZvKaQ0OZw67++MuqXFS1/DJM499mXrLE5qw+2dwq+sekuxbHA93+BBX7mztKm2SlzzvroKeE+KrVsvTlnfhK0oxotIvG4C7SbhkTis5PPhK4GemytAgtL1PWuHzk9To7ir4KyX2A3ZKqEC8ERfFt7f8rbJEEYaMJoLk/3lQUFjn7pZUnazh68gov7rRlmchZJm6oFZwGCmWXvysY2SfJl8IvA=
-        skip_cleanup: true
-        draft: true
+          secure: DXa8qj0RO+ft6oWsnAQBkj1KpOjuqkrGKpKUyxo0emzYHhJhZYmHvwbf92xwJyDkheF/d/HkyQUrR01OJkOCmispBRrPh32/zIoqAsOZoUmTsZAqQVqYavYhZYdjrnHWjOL5SsAjiTpiioGTMgkCYSiomuncG9bJJ5BXB/RpKj31zZNKZnBhZlev854PS7sFk8vf7/vABpERaEsSXH/ZbrSw9hj/K4FiGidZYFFm2TZopO+SYHztDmDVRxBXXgNrVOaxINGztF31PPauBTnE9ovlCPDSw0pRnB6P5jGL2FF3+v4NRAMsogh1vWjhP1eY+ilypeFUlRDsVBv/7VkQyn6G/F7HJPikfSRpHuOXSdYtitF78azsTZiRCTyGRQ2viUZv+mGmJOPYkrIeWTWw/FnW3T5L3N8MQjfo+Y0Td1S3mNR8NXy+DNwmcAV07ZPaeY5SIkhDE6P1J85KQxCLeoLH06AgC9OfYubMRILZuNx681W4X6d5Bbkfvo0hPjJJJ5SVYoUcAaqHUE7SFq+sil+rXM/TDigX37KF4ZhjFi1YHixpA92d3jrv3GA+IJJGMOesBu25ypoUvxPfo8zMaWzv6V9jQP4yPu0lfUmEXLPkoFPo7nSONXwND4o803lySKEEYPPrGEe8prfX8OuJBDhYwWp7TjYHPwe4wimw/HE=
         on:
           tags: true

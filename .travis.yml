@@ -22,6 +22,7 @@ jobs:
 
     - stage: deploy
       name: Deploy to GitHub Releases
+      script: skip
       deploy:
         provider: releases
         api_key:
@@ -35,10 +36,12 @@ jobs:
           tags: true
     - stage: deploy
       name: Deploy to NPM
+      script: skip
       deploy:
         provider: npm
         email: nick@karamoff.ru
         api_key:
           secure: DXa8qj0RO+ft6oWsnAQBkj1KpOjuqkrGKpKUyxo0emzYHhJhZYmHvwbf92xwJyDkheF/d/HkyQUrR01OJkOCmispBRrPh32/zIoqAsOZoUmTsZAqQVqYavYhZYdjrnHWjOL5SsAjiTpiioGTMgkCYSiomuncG9bJJ5BXB/RpKj31zZNKZnBhZlev854PS7sFk8vf7/vABpERaEsSXH/ZbrSw9hj/K4FiGidZYFFm2TZopO+SYHztDmDVRxBXXgNrVOaxINGztF31PPauBTnE9ovlCPDSw0pRnB6P5jGL2FF3+v4NRAMsogh1vWjhP1eY+ilypeFUlRDsVBv/7VkQyn6G/F7HJPikfSRpHuOXSdYtitF78azsTZiRCTyGRQ2viUZv+mGmJOPYkrIeWTWw/FnW3T5L3N8MQjfo+Y0Td1S3mNR8NXy+DNwmcAV07ZPaeY5SIkhDE6P1J85KQxCLeoLH06AgC9OfYubMRILZuNx681W4X6d5Bbkfvo0hPjJJJ5SVYoUcAaqHUE7SFq+sil+rXM/TDigX37KF4ZhjFi1YHixpA92d3jrv3GA+IJJGMOesBu25ypoUvxPfo8zMaWzv6V9jQP4yPu0lfUmEXLPkoFPo7nSONXwND4o803lySKEEYPPrGEe8prfX8OuJBDhYwWp7TjYHPwe4wimw/HE=
+        skip_cleanup: true
         on:
           tags: true

@@ -67,6 +67,9 @@ type prettify = {
     (number: number|string): string;
 }
 
+function prettyMoney(options: FormatOptions): Function;
+function prettyMoney(options: FormatOptions, number: number|string): string;
+
 /**
  * Prettifies a number according to the given format or returns a curried function to prettify any number
  *
@@ -93,15 +96,13 @@ type prettify = {
  * @param number - the number to be currency-formatted
  * @returns the format results, if the number was provided, or a formatting function otherwise
  */
-// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-// @ts-ignore
-const prettyMoney: prettifyFactory = (options: FormatOptions = {}, number?: number|string) => {
+function prettyMoney(options: FormatOptions, number?: number | string): string | Function {
     const _opts: FormatOptions = {
         ...defaultOpts,
         ...options
     };
 
-    function prettify(number: number|string): string {
+    function prettify(number: number | string): string {
         number = Number(number);
 
         if (isNaN(number)) {
@@ -133,6 +134,6 @@ const prettyMoney: prettifyFactory = (options: FormatOptions = {}, number?: numb
     }
 
     return prettify(number);
-};
+}
 
 export default prettyMoney;

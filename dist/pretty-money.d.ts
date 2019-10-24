@@ -38,6 +38,49 @@ interface FormatOptions {
      */
     thousandsDelimiter?: string;
 }
-declare function prettyMoney(options: FormatOptions): Function;
+/**
+ * Returns a curried function to prettify a number according to the given format
+ *
+ * ## Usage
+ * ```
+ * > const euros = prettify({currency: "EUR"});
+ * > euros("12.345")
+ * 12.34 EUR
+ *
+ * > const rubles = prettify({
+ *     currency: "₽",
+ *     decimals: "fixed",
+ *     decimalDelimiter: ",",
+ *     thousandsDelimiter: " "
+ * });
+ * > rubles(56789)
+ * 56 789,00 ₽
+ * ```
+ *
+ * @param options - formatting options
+ * @returns the formatting function
+ */
+declare function prettyMoney(options: FormatOptions): (n: number | string) => string;
+/**
+ * Prettifies a number according to the given format
+ *
+ * ## Usage
+ * ```
+ * > prettify({currency: "USD"}, 5);
+ * 5 USD
+ *
+ * > prettify({
+ *     currency: "₽",
+ *     decimals: "fixed",
+ *     decimalDelimiter: ",",
+ *     thousandsDelimiter: " "
+ * }, "56789.0");
+ * 56 789,00 ₽
+ * ```
+ *
+ * @param options - formatting options
+ * @param number - the number to be currency-formatted
+ * @returns the format results
+ */
 declare function prettyMoney(options: FormatOptions, number: number | string): string;
 export default prettyMoney;

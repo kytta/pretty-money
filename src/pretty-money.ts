@@ -67,17 +67,11 @@ type prettify = {
     (number: number|string): string;
 }
 
-function prettyMoney(options: FormatOptions): Function;
-function prettyMoney(options: FormatOptions, number: number|string): string;
-
 /**
- * Prettifies a number according to the given format or returns a curried function to prettify any number
+ * Returns a curried function to prettify a number according to the given format
  *
  * ## Usage
  * ```
- * > prettify({currency: "USD"}, 5);
- * 5 USD
- *
  * > const euros = prettify({currency: "EUR"});
  * > euros("12.345")
  * 12.34 EUR
@@ -93,10 +87,35 @@ function prettyMoney(options: FormatOptions, number: number|string): string;
  * ```
  *
  * @param options - formatting options
- * @param number - the number to be currency-formatted
- * @returns the format results, if the number was provided, or a formatting function otherwise
+ * @returns the formatting function
  */
-function prettyMoney(options: FormatOptions, number?: number | string): string | Function {
+function prettyMoney(options: FormatOptions): (n: number|string) => string;
+
+/**
+ * Prettifies a number according to the given format
+ *
+ * ## Usage
+ * ```
+ * > prettify({currency: "USD"}, 5);
+ * 5 USD
+ *
+ * > prettify({
+ *     currency: "₽",
+ *     decimals: "fixed",
+ *     decimalDelimiter: ",",
+ *     thousandsDelimiter: " "
+ * }, "56789.0");
+ * 56 789,00 ₽
+ * ```
+ *
+ * @param options - formatting options
+ * @param number - the number to be currency-formatted
+ * @returns the format results
+ */
+function prettyMoney(options: FormatOptions, number: number|string): string;
+
+
+function prettyMoney(options: FormatOptions, number?: number | string): string | ((n: number|string) => string) {
     const _opts: FormatOptions = {
         ...defaultOpts,
         ...options

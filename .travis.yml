@@ -6,17 +6,15 @@ cache: npm
 install: npm install
 
 stages:
-  - build
   - test
-  - deploy
+  - name: deploy
+    if: tag IS present
+
+before_script:
+  - npm run build
 
 jobs:
   include:
-    - stage: build
-      name: "Prod build"
-      script:
-        - npm run build
-
     - stage: test
       name: "Test"
       script:
@@ -24,9 +22,6 @@ jobs:
 
     - stage: deploy
       name: Deploy to GitHub Releases
-      script: npm run build
-      before_deploy:
-        - echo "Deploying to GitHub Releases"
       deploy:
         provider: releases
         api_key:
@@ -40,9 +35,6 @@ jobs:
           tags: true
     - stage: deploy
       name: Deploy to NPM
-      script: npm run build
-      before_deploy:
-        - echo "Deploying to NPM"
       deploy:
         provider: npm
         email: nick@karamoff.ru

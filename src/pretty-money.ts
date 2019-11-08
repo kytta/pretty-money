@@ -7,7 +7,7 @@ interface FormatOptions {
     currency?: string;
 
     /**
-     * A string that separates the integer and the fraction parts of the number.
+     * Sets the strategy to calculate the amount of decimal places.
      */
     decimalDelimiter?: string;
 
@@ -26,7 +26,7 @@ interface FormatOptions {
     maxDecimal?: number;
 
     /**
-     * The minimum number of decimal places allowed in the number. Has no effect when `decimals` is `"fixed"`.
+     * The minimum number of decimal places allowed in the number. Has no effect when `decimals` is set to `"fixed"`.
      */
     minDecimal?: number;
 

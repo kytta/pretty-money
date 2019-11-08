@@ -53,7 +53,7 @@
             <p>
                 <code>pretty-money</code> is dependency-free and totally not biased towards browser or Node versions.
                 Unlike <code>Number.prototype.toLocaleString</code>, <code>pretty-money</code> produces the same code in
-                any environment.
+                every environment.
             </p>
         </article>
 
@@ -179,10 +179,10 @@ yarn add pretty-money</code></pre>
             </h2>
 
             <p>
-                There are two ways you can use <code>pretty-money</code>: traditional and functional.
+                There are two ways to use <code>pretty-money</code>: traditional and functional.
 
-                Traditional way is to extract a config object for reuse and to call the function with two parameters — config and number —
-                every time:
+                Traditional way is to call the function with two parameters: the config object
+                and the number you need to format:
             </p>
 
             <pre><code>const prettyDollarConfig = {
@@ -196,7 +196,8 @@ const priceA = prettyMoney(prettyDollarConfig, 1234); //=> "$1,234"
 const priceB = prettyMoney(prettyDollarConfig, 567.89); //=> "$567.89"</code></pre>
 
             <p>
-                Functional way is to curry the function, i.e. to create a function with set config and to call it with one parameter — number:
+                Functional way is to curry the function, i.e. to create a function with a set
+                config and to later call it with only one parameter — the number to format:
             </p>
 
             <pre><code>const prettyEuro = prettyMoney({
@@ -210,7 +211,7 @@ const priceA = prettyEuro(1234); //=> "1.234,00 €"
 const priceB = prettyEuro(567.89); //=> "567,89 €"</code></pre>
 
             <p>
-                You can read more about how to configure pretty-money in the <a href="https://github.com/NickKaramoff/pretty-money#readme">README</a>.
+                You can read more about how to configure <code>pretty-money</code> in the <a href="https://github.com/NickKaramoff/pretty-money#readme">README</a>.
             </p>
         </article>
     </main>

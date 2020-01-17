@@ -1,13 +1,19 @@
-import rpStrip from 'rollup-plugin-strip';
+import rpStrip from '@rollup/plugin-strip';
 import { terser as rpTerser } from 'rollup-plugin-terser';
-import rpTypescript2 from 'rollup-plugin-typescript2';
+import rpTypescript from '@rollup/plugin-typescript';
 
 export const strip = () => rpStrip({
     debugger: true,
-    functions: ['console.log', 'console.debug'],
-    sourceMap: false
+    functions: ['console.log', 'console.debug']
 });
 
-export const terser = () => rpTerser();
+export const terser = () => rpTerser({
+    sourcemap: false,
+    ie8: true,
+    output: {
+        comments: false,
+        ecma: 3
+    }
+});
 
-export const typescript = () => rpTypescript2();
+export const typescript = () => rpTypescript();

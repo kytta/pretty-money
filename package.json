@@ -60,5 +60,8 @@
       "path": "./dist/pretty-money.umd.js",
       "limit": "1 KB"
     }
-  ]
+  ],
+  "np": {
+    "yarn": false
+  }
 }

@@ -29,6 +29,7 @@
   ],
   "main": "dist/pretty-money.umd.js",
   "module": "dist/pretty-money.esm.js",
+  "unpkg": "dist/pretty-money.umd.js",
   "types": "dist/pretty-money.d.ts",
   "scripts": {
     "build": "rollup --config ./config/build/rollup.config.prod.js",

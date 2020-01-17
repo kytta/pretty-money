@@ -1,5 +1,11 @@
 # pretty-money
 
+<img src="https://raw.githubusercontent.com/googlefonts/noto-emoji/master/png/128/emoji_u1f4b8.png"
+         align="right"
+         alt="Money With Wings emoji"
+         width="96"
+         height="96">
+
 A tiny currency formatting library for JavaScript.
 
 - **Small.** Dependency-free. 468 bytes minified and gzipped. Controlled by
@@ -13,7 +19,7 @@ let price = prettyMoney({ currency: "EUR" }, 10000); //=> "10000 EUR"
 ```
 
 Works in any ES3-compatible environment, be that Node.js or a browser.
-[**See it for yourself**](https://os.karamoff.dev/pretty-money#demo)
+[**Try it yourself**](https://os.karamoff.dev/pretty-money#demo)!
 
 ## Install
 
@@ -176,18 +182,11 @@ around with the developer build, here's all you need to know:
 - `npm run build` to build the production-ready minified version of the library
   and output it to `./dist/pretty-money.umd.js` and
   `./dist/pretty-money.esm.js`
-- `npm run checks` to run all tests
+- `npm run test` to build the project and run all tests, which include:
   - `npm run test:lint` to check the code formatting with ESLint (this won't
     auto fix errors)
   - `npm run test:unit` to run the Jest unit tests
   - `npm run test:size` to check the size
-- `npm run test` to first build and run all tests. Helpful if you tend to forget
-  the first step
 
-There are no peer dependencies and other extra requirements. There are no commit
-message rules. Any help is welcome if it keeps things simple and small.
-
-----
-
-Created by [Nikita Karamov](https://karamoff.dev) and distributed under the MIT
-License.
+There are no peer dependencies and other extra requirements. Any help is welcome
+when it keeps things simple and small.

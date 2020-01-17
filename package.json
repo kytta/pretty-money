@@ -8,7 +8,7 @@
     "currency",
     "format"
   ],
-  "homepage": "https://os.karamoff.ru/pretty-money",
+  "homepage": "https://os.karamoff.dev/pretty-money",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/NickKaramoff/pretty-money.git"
@@ -18,8 +18,8 @@
   },
   "author": {
     "name": "Nikita Karamov",
-    "email": "nick@karamoff.ru",
-    "url": "https://karamoff.ru"
+    "email": "nick@karamoff.dev",
+    "url": "https://karamoff.dev"
   },
   "files": [
     "dist/pretty-money.esm.js",

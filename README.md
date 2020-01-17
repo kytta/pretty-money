@@ -13,7 +13,7 @@ let price = prettyMoney({ currency: "EUR" }, 10000); //=> "10000 EUR"
 ```
 
 Works in any ES3-compatible environment, be that Node.js or a browser.
-[**See it for yourself**](https://os.karamoff.ru/pretty-money#demo)
+[**See it for yourself**](https://os.karamoff.dev/pretty-money#demo)
 
 ## Install
 
@@ -189,5 +189,5 @@ message rules. Any help is welcome if it keeps things simple and small.
 
 ----
 
-Created by [Nikita Karamov](https://karamoff.ru) and distributed under the MIT
+Created by [Nikita Karamov](https://karamoff.dev) and distributed under the MIT
 License.

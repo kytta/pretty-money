@@ -8,7 +8,7 @@
     "currency",
     "format"
   ],
-  "homepage": "https://os.karamoff.ru/pretty-money",
+  "homepage": "https://os.karamoff.dev/pretty-money",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/NickKaramoff/pretty-money.git"
@@ -18,8 +18,8 @@
   },
   "author": {
     "name": "Nikita Karamov",
-    "email": "nick@karamoff.ru",
-    "url": "https://karamoff.ru"
+    "email": "nick@karamoff.dev",
+    "url": "https://karamoff.dev"
   },
   "files": [
     "dist/pretty-money.esm.js",
@@ -29,35 +29,39 @@
   ],
   "main": "dist/pretty-money.umd.js",
   "module": "dist/pretty-money.esm.js",
+  "unpkg": "dist/pretty-money.umd.js",
   "types": "dist/pretty-money.d.ts",
   "scripts": {
     "build": "rollup --config ./config/build/rollup.config.prod.js",
-    "checks": "run-p test:*",
     "dev": "rollup -w --config ./config/build/rollup.config.dev.js",
-    "test": "run-s build checks",
+    "pretest": "npm run build",
+    "test": "run-p --aggregate-output test:*",
     "test:lint": "eslint \"./src/**\"",
     "test:size": "size-limit",
     "test:unit": "jest --coverage"
   },
   "devDependencies": {
-    "@size-limit/preset-small-lib": "^2.1.6",
-    "@types/jest": "^24.0.19",
-    "@typescript-eslint/eslint-plugin": "^2.5.0",
-    "@typescript-eslint/parser": "^2.5.0",
-    "eslint": "^6.5.1",
+    "@size-limit/preset-small-lib": "^3.0.0",
+    "@types/jest": "^24.9.0",
+    "@typescript-eslint/eslint-plugin": "^2.16.0",
+    "@typescript-eslint/parser": "^2.16.0",
+    "eslint": "^6.8.0",
     "jest": "^24.9.0",
     "npm-run-all": "^4.1.5",
-    "rollup": "^1.25.2",
-    "rollup-plugin-strip": "^1.2.2",
-    "rollup-plugin-terser": "^5.1.2",
-    "rollup-plugin-typescript2": "^0.24.3",
-    "ts-jest": "^24.1.0",
-    "typescript": "^3.6.4"
+    "rollup": "^1.29.0",
+    "@rollup/plugin-strip": "^1.3.1",
+    "rollup-plugin-terser": "^5.2.0",
+    "@rollup/plugin-typescript": "^2.1.0",
+    "ts-jest": "^24.3.0",
+    "typescript": "^3.7.5"
   },
   "size-limit": [
     {
       "path": "./dist/pretty-money.umd.js",
       "limit": "1 KB"
     }
-  ]
+  ],
+  "np": {
+    "yarn": false
+  }
 }

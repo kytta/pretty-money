@@ -1,47 +1,10 @@
 language: node_js
 node_js:
-  - stable
+  - lts/dubnium
+  - lts/erbium
+  - node
 cache: npm
 
 install: npm install
-
-stages:
-  - test
-  - name: deploy
-    if: tag IS present
-
-before_script:
-  - npm run build
-
-jobs:
-  include:
-    - stage: test
-      name: "Test"
-      script:
-        - npm run test && npm i -g codecov && codecov
-
-    - stage: deploy
-      name: Deploy to GitHub Releases
-      script: skip
-      deploy:
-        provider: releases
-        api_key:
-          secure: PmUkI/oJ8HDDGlxMbTzmDC6BVHuv0ITBmSQkcO61ksjNgUpbaCx3b0K8S8v/CF1R0Lq34AavREdwrWvVIbWHLVqNlCU+7pFhc2Qv3pfErLFGW4z1aLQsmEWSm1nhHOdYa7G0Tna0F90lU8YZlilNH52yK0PXeAQyx3d0yWMIHq2HPasPh7NwEacGYbkyD8hdQfjl4UsKXZXIczyy0m0Li7+1mixadUeSGmz39p6idBwoLP3hgCX5V7kJD6b37zcuKINRVLMKMalUtKHSysyJ8WgGphTMSHvnSFXYJxDb6RDFTHiDzjHApMy2j9ykQbkdaeqmtjO2KQ950m84dAPcKvJzZpYSKl6NWKaR/YPKkCdjiiY9hO+079dNSu6fMKUCrtvHTJQz9oaMvuVYjQXTlJuQenfwtHS4dKceZOUyLC4Jywus4NooCagyxp4A6R0QI3OAbXAGAC0UEn0VtXkxgzszstdsYoJsNibxMBXV//RKszTyjBLNE8g0dnTibqIJMtviTcBf5PfppYvhUh+ax4v5Io2ADRjBrDZi0XDk9XaBliK2VPl3eoQ1Qp+Y0W3bsR8WRygle4h+fxHPOpJH2jOylnGCua4eTTBpDi6VslFwlgdNtanNSUn/qIPeAQCSvvj1ZjhbFgo6C95LB9pDXCTfE40Jc95WtXsVqIrv/rM=
-        file:
-          - ./dist/pretty-money.umd.js
-          - ./dist/pretty-money.esm.js
-        skip_cleanup: true
-        draft: true
-        on:
-          tags: true
-    - stage: deploy
-      name: Deploy to NPM
-      script: skip
-      deploy:
-        provider: npm
-        email: nick@karamoff.ru
-        api_key:
-          secure: DXa8qj0RO+ft6oWsnAQBkj1KpOjuqkrGKpKUyxo0emzYHhJhZYmHvwbf92xwJyDkheF/d/HkyQUrR01OJkOCmispBRrPh32/zIoqAsOZoUmTsZAqQVqYavYhZYdjrnHWjOL5SsAjiTpiioGTMgkCYSiomuncG9bJJ5BXB/RpKj31zZNKZnBhZlev854PS7sFk8vf7/vABpERaEsSXH/ZbrSw9hj/K4FiGidZYFFm2TZopO+SYHztDmDVRxBXXgNrVOaxINGztF31PPauBTnE9ovlCPDSw0pRnB6P5jGL2FF3+v4NRAMsogh1vWjhP1eY+ilypeFUlRDsVBv/7VkQyn6G/F7HJPikfSRpHuOXSdYtitF78azsTZiRCTyGRQ2viUZv+mGmJOPYkrIeWTWw/FnW3T5L3N8MQjfo+Y0Td1S3mNR8NXy+DNwmcAV07ZPaeY5SIkhDE6P1J85KQxCLeoLH06AgC9OfYubMRILZuNx681W4X6d5Bbkfvo0hPjJJJ5SVYoUcAaqHUE7SFq+sil+rXM/TDigX37KF4ZhjFi1YHixpA92d3jrv3GA+IJJGMOesBu25ypoUvxPfo8zMaWzv6V9jQP4yPu0lfUmEXLPkoFPo7nSONXwND4o803lySKEEYPPrGEe8prfX8OuJBDhYwWp7TjYHPwe4wimw/HE=
-        skip_cleanup: true
-        on:
-          tags: true
+script: npm run test
+after_script: npm install -g codecov && codecov

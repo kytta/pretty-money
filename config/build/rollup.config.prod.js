@@ -17,7 +17,7 @@ export default {
     ],
     plugins: [
         typescript(),
+        strip(),
         terser(),
-        strip()
     ]
 }

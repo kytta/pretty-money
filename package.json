@@ -32,9 +32,9 @@
   "types": "dist/pretty-money.d.ts",
   "scripts": {
     "build": "rollup --config ./config/build/rollup.config.prod.js",
-    "checks": "run-p test:*",
     "dev": "rollup -w --config ./config/build/rollup.config.dev.js",
-    "test": "run-s build checks",
+    "pretest": "npm run build",
+    "test": "run-p --aggregate-output test:*",
     "test:lint": "eslint \"./src/**\"",
     "test:size": "size-limit",
     "test:unit": "jest --coverage"

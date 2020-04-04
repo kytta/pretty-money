@@ -1,10 +1,10 @@
 language: node_js
 node_js:
-  - lts/dubnium
-  - lts/erbium
   - node
-cache: npm
+  - lts/erbium
+  - lts/dubnium
+cache: yarn
 
-install: npm install
-script: npm run test
-after_script: npm install -g codecov && codecov
+install: yarn
+script: yarn test
+after_script: yarn global add codecov && codecov

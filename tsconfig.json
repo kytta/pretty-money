@@ -2,9 +2,9 @@
   "compilerOptions": {
     "declaration": true,
     "esModuleInterop": true,
-    "module": "es6",
-    "noImplicitReturns": true,
+    "module": "ESNext",
     "noImplicitAny": true,
+    "noImplicitReturns": true,
     "outDir": "./dist",
     "target": "es3"
   },

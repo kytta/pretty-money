@@ -59,8 +59,13 @@
   },
   "size-limit": [
     {
-      "path": "./dist/pretty-money.umd.js",
+      "path": "./dist/pretty-money.esm.js",
       "limit": "1 KB"
+    },
+    {
+      "path": "./dist/pretty-money.umd.js",
+      "limit": "1 KB",
+      "webpack": false
     }
   ]
 }

@@ -25,7 +25,8 @@
     "dist/pretty-money.esm.js",
     "dist/pretty-money.umd.js",
     "dist/pretty-money.d.ts",
-    "src"
+    "LICENSE",
+    "README.md"
   ],
   "main": "dist/pretty-money.umd.js",
   "module": "dist/pretty-money.esm.js",

@@ -1,10 +1,6 @@
 # pretty-money
 
-<img src="https://raw.githubusercontent.com/googlefonts/noto-emoji/master/png/128/emoji_u1f4b8.png"
-         align="right"
-         alt="Money With Wings emoji"
-         width="96"
-         height="96">
+<img src="https://raw.githubusercontent.com/googlefonts/noto-emoji/master/png/128/emoji_u1f4b8.png" align="right" alt="Money With Wings emoji" width="96" height="96">
 
 A tiny currency formatting library for JavaScript.
 

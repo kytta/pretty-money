@@ -34,5 +34,6 @@ jobs:
         if: ${{ matrix.node < 12 }}
       - name: Upload coverage
         run: bash <(curl -s https://codecov.io/bash)
+        if: ${{ matrix.node == 14 }}
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}

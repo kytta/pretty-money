@@ -43,7 +43,8 @@
     "test": "run-p --aggregate-output test:*",
     "test:lint": "eslint-ci --ext .js src/",
     "test:size": "size-limit",
-    "test:unit": "c8 --include=src uvu -r esm test/ && c8 report --reporter=lcov"
+    "test:unit": "c8 --include=src uvu test/ && c8 report --reporter=lcov",
+    "uvu": "uvu $UVU_SETTINGS test/"
   },
   "devDependencies": {
     "@size-limit/preset-small-lib": "^4.10.1",

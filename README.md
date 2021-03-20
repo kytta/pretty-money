@@ -2,10 +2,9 @@
 
 <img src="https://raw.githubusercontent.com/googlefonts/noto-emoji/master/png/128/emoji_u1f4b8.png" align="right" alt="Money With Wings emoji" width="96" height="96">
 
-A tiny currency formatting library for JavaScript.
+> A tiny currency formatting library for JavaScript.
 
-- **Small.** Dependency-free. 471 bytes minified and gzipped. Controlled by
-  [Size Limit](https://github.com/ai/size-limit).
+- **Small.** Dependency-free. 471 bytes minified and gzipped. Controlled by [Size Limit](https://github.com/ai/size-limit).
 - **Functional.** The function is automatically curried (think Ramda).
 - **Flexible.** It can be tweaked to present any modern currency.
 
@@ -14,7 +13,7 @@ import prettyMoney from "pretty-money";
 let price = prettyMoney({ currency: "EUR" }, 10000); //=> "10000 EUR"
 ```
 
-Works in any ES3-compatible environment, be that Node.js or a browser.
+Works in any environment, be that Node.js or a browser.
 [**Try it yourself**](https://os.karamoff.dev/pretty-money#demo)!
 
 ## Install
@@ -27,19 +26,25 @@ npm install pretty-money
 yarn add pretty-money
 ```
 
-If you only need to use pretty-money on the client side, you can install the
-latest version with jsDelivr:
+If you only need to use pretty-money on the client side, you can install the latest version with jsDelivr:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/pretty-money@1.0/dist/pretty-money.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pretty-money@1/dist/pretty-money.umd.js"></script>
+```
+
+In modern browsers, you can use:
+
+```html
+<script type="module">
+  import prettyMoney from "https://cdn.jsdelivr.net/npm/pretty-money@1/dist/pretty-money.modern.js"
+</script>
 ```
 
 ## Usage
 
 There are two ways to use pretty-money: traditional and functional.
 
-Traditional way is to call the function with two parameters: the config object
-and the number you need to format:
+Traditional way is to call the function with two parameters: the config object and the number you need to format:
 
 ```js
 const prettyDollarConfig = {
@@ -53,8 +58,7 @@ const priceA = prettyMoney(prettyDollarConfig, 1234); //=> "$1,234"
 const priceB = prettyMoney(prettyDollarConfig, 567.89); //=> "$567.89"
 ```
 
-Functional way is to curry the function, i.e. to create a function with a set
-config and to later call it with only one parameter — the number to format:
+Functional way is to curry the function, i.e. to create a function with a set config and to later call it with only one parameter — the number to format:
 
 ```js
 const prettyEuro = prettyMoney({
@@ -68,8 +72,7 @@ const priceA = prettyEuro(1234); //=> "1.234,00 €"
 const priceB = prettyEuro(567.89); //=> "567,89 €"
 ```
 
-You can read more about the available configuration parameters in the next
-section, [Config](#config).
+You can read more about the available configuration parameters in the next section, [Config](#config).
 
 ## Config
 
@@ -78,14 +81,13 @@ section, [Config](#config).
 **Default:** `""`
 
 The string to be used as currency symbol.  
-It can be a respective sign (like "$"), currency code (like "GBP") or a word
-(like "peso").
+It can be a respective sign (like "$"), currency code (like "GBP") or a word (like "peso").
 
 ### `decimalDelimiter`
 **Type:** `string`  
 **Default:** `"."`
 
-A string that separates the integer and the fraction parts of the number.
+The string that separates the integer and the fractional parts of the number.
 
 ### `maxDecimal`
 **Type:** `number`  
@@ -97,8 +99,7 @@ The maximum number of decimal places allowed in the number.
 **Type:** `number`  
 **Default:** `0`
 
-The minimum number of decimal places allowed in the number. Has no effect when
-`decimals` is set to `"fixed"`.
+The minimum number of decimal places allowed in the number. Has no effect when `decimals` is set to `"fixed"`.
 
 ### `decimals`
 **Type:** `string`  
@@ -107,12 +108,9 @@ The minimum number of decimal places allowed in the number. Has no effect when
 
 Sets the strategy to calculate the amount of decimal places.
 
-- `"fixed"` — the amount of places will always stay at `maxDecimal`. `minDecimal`
-  has no effect.
-- `"fluid"` — the amount of places will stay at any number between `minDecimal`
-  and `maxDecimal`, in order not to have trailing zeros.
-- `"minmax"` — the amount of places will stay at `maxDecimal` unless it's
-  possible to be at `minDecimal` without having trailing zeros.
+- `"fixed"` — the amount of places will always stay at `maxDecimal`. `minDecimal` has no effect.
+- `"fluid"` — the amount of places will stay at any number between `minDecimal` and `maxDecimal`, in order not to have trailing zeros.
+- `"minmax"` — the amount of places will stay at `maxDecimal` unless it's possible to be at `minDecimal` without having trailing zeros.
 
 ### `position`
 **Type:** `string`  
@@ -135,10 +133,7 @@ A string that separates the thousands of the number.
 
 ## Difference from `toLocaleString`
 
-ECMAScript's `Number` has a method `toLocaleString`, which has a similar idea.
-It too can be used to format numbers as financial values and it even has a lot
-of built-in locales. However, the output of it is different on different Node.js
-versions and browsers:
+ECMAScript's `Number` has a method `toLocaleString`, which has a similar idea. It too can be used to format numbers as financial values, and it even has a lot of built-in locales. However, the output of it is different on different Node.js versions and browsers:
 
 ```js
 let price = (10000).toLocaleString("ru", {
@@ -154,8 +149,7 @@ console.log(price);
 
 This can lead to unexpected output and difficulties in debugging.
 
-While pretty-money doesn't have any locales built-in, it provides a flexible API,
-so that the end user can compose any currency formatting function they need.
+While pretty-money doesn't have any locales built-in, it provides a flexible API, so that the end user can compose any currency formatting function they need.
 
 ```js
 let price = prettyMoney({
@@ -169,20 +163,17 @@ console.log(price);
 
 ## Development
 
-If you want to improve pretty-money, create your own fork of it or just play
-around with the developer build, here's all you need to know:
+If you want to improve pretty-money, create your own fork of it or just play around with the developer build, here's all you need to know:
 
-- `npm run dev` to start a dev server, which will automatically build the
-  library after you change the source and output it to
-  `./dist/pretty-money.dev.js`
-- `npm run build` to build the production-ready minified version of the library
-  and output it to `./dist/pretty-money.umd.js` and
-  `./dist/pretty-money.esm.js`
-- `npm run test` to build the project and run all tests, which include:
-  - `npm run test:lint` to check the code formatting with ESLint (this won't
-    auto fix errors)
-  - `npm run test:unit` to run the Jest unit tests
-  - `npm run test:size` to check the size
+- `yarn dev` to start a dev server, which will automatically build the library after you change the source and output it to `./dist/`
+- `yarn build` to build the production-ready minified version of the library and output it to `./dist/`
+- `yarn test` to build the project and run all tests, which include:
+  - `yarn test:lint` to check the code formatting with ESLint (this **won't** auto fix errors)
+  - `yarn test:unit` to run the uvu unit tests and calculate coverage
+  - `yarn test:size` to check the size
 
-There are no peer dependencies and other extra requirements. Any help is welcome
-when it keeps things simple and small.
+There are no peer dependencies and other extra requirements. Any help is welcome when it keeps things simple and small.
+
+## License
+
+MIT © 2019-2021 Nikita Karamov

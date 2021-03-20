@@ -1,12 +1,13 @@
 {
   "compilerOptions": {
+    "allowJs": true,
     "declaration": true,
+    "emitDeclarationOnly": true,
     "esModuleInterop": true,
     "module": "ESNext",
     "noImplicitAny": true,
     "noImplicitReturns": true,
-    "outDir": "./dist",
-    "target": "es3"
+    "outDir": "dist"
   },
   "include": [
     "./src/**/*"

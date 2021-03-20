@@ -52,6 +52,37 @@ const defaultOpts = {
 };
 
 /**
+ * Prettifies a number according to the previously defined format.
+ * 
+ * @callback PrettifyFunction
+ * @param {number|string} number the number to be currency formatted
+ * @returns {string} formatted number
+ */
+
+/**
+ * Returns a curried function to prettify a number according to the given format
+ *
+ * ## Usage
+ * ```
+ * > const euros = prettify({currency: "EUR"});
+ * > euros("12.345")
+ * "12.34 EUR"
+ *
+ * > const rubles = prettify({
+ *     currency: "₽",
+ *     decimals: "fixed",
+ *     decimalDelimiter: ",",
+ *     thousandsDelimiter: " "
+ *   });
+ * > rubles(56789)
+ * "56 789,00 ₽"
+ * ```
+ * @callback PrettifyFunctionFactory
+ * @param {FormatOptions} options formatting options
+ * @returns {PrettifyFunction} the formatting function
+ */
+
+/**
  * Prettifies a number according to the given format
  *
  * ## Usage
@@ -67,24 +98,22 @@ const defaultOpts = {
  *   }, "56789.0");
  * "56 789,00 ₽"
  * ```
- * 
+ * @callback PrettyMoneyFunction
  * @param {FormatOptions} options formatting options
  * @param {number|string} number the number to be currency formatted
- * @returns {string | ((n: number|string) => string)} the format results
+ * @returns {string} the format results
  */
-function prettyMoney(options, number) {
+
+/**
+ * @type {PrettifyFunctionFactory & PrettyMoneyFunction} 
+ */
+const prettyMoney = function (options, number) {
 	/** @type {FormatOptions} */
 	const _opts = {
 		...defaultOpts,
 		...options
 	};
 
-	/**
-	 * Prettifies a number according to the previously defined format.
-	 * 
-	 * @param {number|string} number the number to be currency formatted
-	 * @returns {string} formatted number
-	 */
 	function prettify(number) {
 		number = Number(number);
 
@@ -116,6 +145,6 @@ function prettyMoney(options, number) {
 	}
 
 	return prettify(number);
-}
+};
 
 export default prettyMoney;

@@ -26,7 +26,7 @@
   "exports": "./dist/pretty-money.modern.js",
   "module": "./dist/pretty-money.esm.js",
   "unpkg": "./dist/pretty-money.umd.js",
-  "types": "dist/pretty-money.d.ts",
+  "types": "./dist/pretty-money.d.ts",
   "type": "module",
   "files": [
     "dist/",

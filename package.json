@@ -43,13 +43,14 @@
     "test": "run-p --aggregate-output test:*",
     "test:lint": "eslint-ci --ext .js src/",
     "test:size": "size-limit",
-    "test:unit": "c8 --include=src uvu test/ && c8 report --reporter=lcov"
+    "test:unit": "c8 --include=src uvu -r esm test/ && c8 report --reporter=lcov"
   },
   "devDependencies": {
     "@size-limit/preset-small-lib": "^4.10.1",
     "c8": "^7.6.0",
     "eslint": "^7.22.0",
     "eslint-ci": "^1.0.0",
+    "esm": "^3.2.25",
     "microbundle": "^0.13.0",
     "npm-run-all": "^4.1.5",
     "size-limit": "^4.10.1",

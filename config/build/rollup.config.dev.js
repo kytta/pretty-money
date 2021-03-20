@@ -1,5 +1,4 @@
 import { defaultOutput, getFilename, input } from './defaults';
-import { typescript } from './plugins';
 
 export default {
     input,
@@ -8,7 +7,4 @@ export default {
         file: getFilename('dev'),
         format: "umd"
     },
-    plugins: [
-        typescript()
-    ]
 }

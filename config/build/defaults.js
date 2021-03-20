@@ -1,4 +1,4 @@
-export const input = "./src/pretty-money.ts";
+export const input = "./src/pretty-money.js";
 
 export const defaultOutput = {
     name: "prettyMoney",

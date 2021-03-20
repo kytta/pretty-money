@@ -38,7 +38,7 @@
     "build": "run-p build:*",
     "build:node": "microbundle --name prettyMoney --target node --format es,cjs",
     "build:web": "microbundle --name prettyMoney --format modern,umd",
-    "dev": "microbundle watch",
+    "dev": "microbundle watch --name prettyMoney --target node --format es,cjs",
     "pretest": "run-s build",
     "test": "run-p --aggregate-output test:*",
     "test:lint": "eslint-ci --ext .js src/",

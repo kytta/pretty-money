@@ -8,6 +8,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Added
 
 - this changelog
+- CommonJS version separate from UMD (`pretty-money.js`)
+- ESM version for use in modern browsers (`pretty-money.modern.js`)
+- source maps for generated files
+
+### Changed
+
+- source file language from TS to JS
+- files for Node (`.esm.js`, `.js`) are built unminified, files for Web (`.modern.js`, `.umd.js`) are built minified
 
 ### Security
 

@@ -6,8 +6,8 @@
  * It can be the respective sign (like "$"), currency code (like "GBP"),
  * or a word (like "peso").
  * 
- * @property {string} [decimalDelimiter="."] The string to be used as delimiter 
- * for decimal part of the number.
+ * @property {string} [decimalDelimiter="."] The string that separates the
+ * integer and the fractional parts of the number.
  * 
  * @property {"fluid"|"minmax"|"fixed"} [decimals="minmax"] Sets the amount of
  * decimal places the number will have.

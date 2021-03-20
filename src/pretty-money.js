@@ -40,15 +40,15 @@
  * 
  * @type {FormatOptions}
  */
- const defaultOpts = {
-  currency: "",
-  position: "after",
-  spaced: true,
-  decimals: "minmax",
-  minDecimal: 0,
-  maxDecimal: 2,
-  decimalDelimiter: ".",
-  thousandsDelimiter: ""
+const defaultOpts = {
+	currency: "",
+	position: "after",
+	spaced: true,
+	decimals: "minmax",
+	minDecimal: 0,
+	maxDecimal: 2,
+	decimalDelimiter: ".",
+	thousandsDelimiter: ""
 };
 
 /**
@@ -73,49 +73,49 @@
  * @returns {string | ((n: number|string) => string)} the format results
  */
 function prettyMoney(options, number) {
-  /** @type {FormatOptions} */
-  const _opts = {
-    ...defaultOpts,
-    ...options
-  };
+	/** @type {FormatOptions} */
+	const _opts = {
+		...defaultOpts,
+		...options
+	};
 
-  /**
-   * Prettifies a number according to the previously defined format.
-   * 
-   * @param {number|string} number the number to be currency formatted
-   * @returns {string} formatted number
-   */
-  function prettify(number) {
-    number = Number(number);
+	/**
+	 * Prettifies a number according to the previously defined format.
+	 * 
+	 * @param {number|string} number the number to be currency formatted
+	 * @returns {string} formatted number
+	 */
+	function prettify(number) {
+		number = Number(number);
 
-    if (isNaN(number)) {
-      number = "NaN";
-    } else {
-      const tens = Math.pow(10, _opts.maxDecimal);
-      number = Math.floor(number * tens).toString();
-      const splitIdx = number.length - _opts.maxDecimal;
-      const wholePart = number.slice(0, splitIdx).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1" + _opts.thousandsDelimiter);
-      let decimalPart = number.slice(splitIdx);
+		if (isNaN(number)) {
+			number = "NaN";
+		} else {
+			const tens = Math.pow(10, _opts.maxDecimal);
+			number = Math.floor(number * tens).toString();
+			const splitIdx = number.length - _opts.maxDecimal;
+			const wholePart = number.slice(0, splitIdx).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1" + _opts.thousandsDelimiter);
+			let decimalPart = number.slice(splitIdx);
 
-      if (_opts.decimals === "fluid" || (_opts.decimals === "minmax" && decimalPart.slice(_opts.minDecimal).match(/^0*$/))) {
-          decimalPart = decimalPart.slice(0, _opts.minDecimal) + decimalPart.slice(_opts.minDecimal).replace(/0*$/, "");
-      }
+			if (_opts.decimals === "fluid" || (_opts.decimals === "minmax" && decimalPart.slice(_opts.minDecimal).match(/^0*$/))) {
+				decimalPart = decimalPart.slice(0, _opts.minDecimal) + decimalPart.slice(_opts.minDecimal).replace(/0*$/, "");
+			}
 
-      number = wholePart + (decimalPart === "" ? "" : _opts.decimalDelimiter) + decimalPart;
-    }
+			number = wholePart + (decimalPart === "" ? "" : _opts.decimalDelimiter) + decimalPart;
+		}
 
-    return (_opts.position === "before" ? _opts.currency : "")
-            + (_opts.position === "before" && _opts.spaced && _opts.currency !== "" ? " " : "")
-            + number
-            + (_opts.position === "after" && _opts.spaced && _opts.currency !== "" ? " " : "")
-            + (_opts.position === "after" ? _opts.currency : "");
-  }
+		return (_opts.position === "before" ? _opts.currency : "")
+						+ (_opts.position === "before" && _opts.spaced && _opts.currency !== "" ? " " : "")
+						+ number
+						+ (_opts.position === "after" && _opts.spaced && _opts.currency !== "" ? " " : "")
+						+ (_opts.position === "after" ? _opts.currency : "");
+	}
 
-  if (number === undefined) {
-    return prettify;
-  }
+	if (number === undefined) {
+		return prettify;
+	}
 
-  return prettify(number);
+	return prettify(number);
 }
 
 export default prettyMoney;

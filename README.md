@@ -4,7 +4,7 @@
 
 > A tiny currency formatting library for JavaScript.
 
-- **Small.** Dependency-free. 471 bytes minified and gzipped. Controlled by [Size Limit](https://github.com/ai/size-limit).
+- **Small.** Dependency-free. ~500 bytes minified and gzipped. Controlled by [Size Limit](https://github.com/ai/size-limit).
 - **Functional.** The function is automatically curried (think Ramda).
 - **Flexible.** It can be tweaked to present any modern currency.
 

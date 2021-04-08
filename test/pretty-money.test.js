@@ -5,12 +5,20 @@ import prettyMoney from "../src/pretty-money.js";
 
 const argument = suite("argument");
 
+argument("can be zero", () => {
+	assert.is(prettyMoney({}, 0), "0");
+});
+
 argument("can be an integer number", () => {
 	assert.is(prettyMoney({}, 1234), "1234");
 });
 
 argument("can be a float number", () => {
 	assert.is(prettyMoney({}, 1234.56), "1234.56");
+});
+
+argument("can be an empty string", () => {
+	assert.is(prettyMoney({}, ""), "0");
 });
 
 argument("can be a stringified integer number", () => {
@@ -55,6 +63,10 @@ currency.run();
 // ---
 
 const decimalsFixed = suite("decimals: fixed");
+
+decimalsFixed("should add decimals to zero", () => {
+	assert.is(prettyMoney({ decimals: "fixed" }, 0), "0.00");
+})
 
 decimalsFixed("should add decimals to a whole number", () => {
 	assert.is(prettyMoney({ decimals: "fixed" }, 1234), "1234.00");

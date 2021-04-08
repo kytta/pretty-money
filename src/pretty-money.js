@@ -122,6 +122,24 @@ const prettyMoney = function (options, number) {
 		} else {
 			const tens = Math.pow(10, _opts.maxDecimal);
 			number = Math.floor(number * tens).toString();
+
+			// Code taken from lodash.repeat (MIT license)
+			// Source: https://github.com/lodash/lodash/blob/2f79053d7bc7c9c9561a30dda202b3dcd2b72b90/repeat.js#L20
+			// In particular, the exponentiation by squaring algorithm was taken
+			let zeroes = _opts.maxDecimal + 1 - number.length;
+			if (zeroes > 0){
+				let padWith = "0";
+				do {
+					if (zeroes % 2 != 0) {
+						number = padWith + number;
+					}
+					zeroes = Math.floor(zeroes / 2);
+					if (zeroes != 0) {
+						padWith += padWith;
+					}
+				} while (zeroes != 0);
+			}
+
 			const splitIdx = number.length - _opts.maxDecimal;
 			const wholePart = number.slice(0, splitIdx).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1" + _opts.thousandsDelimiter);
 			let decimalPart = number.slice(splitIdx);

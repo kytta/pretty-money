@@ -1,3 +1,10 @@
+> # THIS PROJECT IS DEPRECATED
+>
+> Starting with Node 14, all currency values are formatted correctly. You can
+> use the built-in `Number.prototype.toLocaleString()` method instead.
+>
+> This project will not be developed any further.
+
 # pretty-money
 
 <img src="https://raw.githubusercontent.com/googlefonts/noto-emoji/master/png/128/emoji_u1f4b8.png" align="right" alt="Money With Wings emoji" width="96" height="96">

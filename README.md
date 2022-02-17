@@ -174,6 +174,7 @@ If you want to improve pretty-money, create your own fork of it or just play aro
 
 There are no peer dependencies and other extra requirements. Any help is welcome when it keeps things simple and small.
 
-## License
+## Licence
 
-MIT © 2019-2021 Nikita Karamov
+Copyright © 2020–2021 [Nikita Karamov](https://www.kytta.dev/)  
+Licenced under the [MIT License](https://spdx.org/licenses/MIT.html).

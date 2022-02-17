@@ -75,11 +75,11 @@ The initial release of pretty-money ✨
 - setting for delimiters
 - setting for decimal part formatting
 
-[Unreleased]: https://github.com/NickKaramoff/pretty-money/compare/v1.1.1...HEAD
-[1.1.1]: https://github.com/NickKaramoff/pretty-money/compare/v1.1.0...v1.1.1
-[1.1.0]: https://github.com/NickKaramoff/pretty-money/compare/v1.0.5...v1.1.0
-[1.0.5]: https://github.com/NickKaramoff/pretty-money/compare/v1.0.4...v1.0.5
-[1.0.4]: https://github.com/NickKaramoff/pretty-money/compare/1.0.3...v1.0.4
-[1.0.3]: https://github.com/NickKaramoff/pretty-money/compare/1.0.1...1.0.3
-[1.0.1]: https://github.com/NickKaramoff/pretty-money/compare/1.0.0...1.0.1
-[1.0.0]: https://github.com/NickKaramoff/pretty-money/compare/d90fe8630c3a595c435c7b78881c6e57e51a221d...1.0.0
+[Unreleased]: https://github.com/kytta/pretty-money/compare/v1.1.1...HEAD
+[1.1.1]: https://github.com/kytta/pretty-money/compare/v1.1.0...v1.1.1
+[1.1.0]: https://github.com/kytta/pretty-money/compare/v1.0.5...v1.1.0
+[1.0.5]: https://github.com/kytta/pretty-money/compare/v1.0.4...v1.0.5
+[1.0.4]: https://github.com/kytta/pretty-money/compare/1.0.3...v1.0.4
+[1.0.3]: https://github.com/kytta/pretty-money/compare/1.0.1...1.0.3
+[1.0.1]: https://github.com/kytta/pretty-money/compare/1.0.0...1.0.1
+[1.0.0]: https://github.com/kytta/pretty-money/compare/d90fe8630c3a595c435c7b78881c6e57e51a221d...1.0.0

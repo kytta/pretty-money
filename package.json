@@ -8,18 +8,18 @@
     "currency",
     "format"
   ],
-  "homepage": "https://os.karamoff.dev/pretty-money",
+  "homepage": "https://os.kytta.dev/pretty-money",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/NickKaramoff/pretty-money.git"
+    "url": "git+https://github.com/kytta/pretty-money.git"
   },
   "bugs": {
-    "url": "https://github.com/NickKaramoff/pretty-money/issues"
+    "url": "https://github.com/kytta/pretty-money/issues"
   },
   "author": {
     "name": "Nikita Karamov",
-    "email": "nick@karamoff.dev",
-    "url": "https://karamoff.dev"
+    "email": "me@kytta.dev",
+    "url": "https://www.kytta.dev/"
   },
   "source": "./src/pretty-money.js",
   "main": "./dist/pretty-money.js",
